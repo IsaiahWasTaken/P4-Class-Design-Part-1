@@ -1,0 +1,94 @@
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
+class item {
+public:
+    static string item0;//item1, item2.. would represent the next item in stock within the store, same goes for other vars
+    static double price0;
+    static long id0;
+    static int stock0;
+
+    void setbookN(string n){
+         n = "book";
+         item0 = n;
+    }
+    string getbook(){
+        return item0;
+    }
+    void setbookP(double nn){
+        nn = (rand() % 1000 + 1)+0.99;
+        price0 = nn;
+    }
+    double getbookP(){
+        return price0;
+    }
+    void setbookID(long nnn){
+        nnn =((rand() % 9 + 1) * pow(2,64));
+        id0 = nnn;
+    }
+    long getbookID(){
+        return id0;
+    }
+    void getbookS(int nnnn){
+        nnnn = (rand() % 10+1);
+        stock0 = nnnn;
+    }
+    int setbookS(){
+        return stock0;
+    }
+
+
+
+
+
+};
+class store{
+public:
+    string book, sock, hat, paper, pencil, tomato, pen;
+   string items[98] = {book,sock, hat, paper, pencil, tomato, pen};
+
+   void itemlist() {
+       for (int i = 0; i < 98; i++) {
+           cout << items[i]<< ' '<<item::stock0;
+
+       }
+
+   }
+};
+class order{
+public:
+    string order[9];
+    string input;
+    int thebiggestnumberintheworld;
+    void getorder(){
+        cout<<"what is your order";
+        cin>>input;
+        cout <<"item quanitiy>";
+        cin>>thebiggestnumberintheworld;
+        if(input.find(item::item0)){
+           order[0] = item::item0;
+        }
+        cout<< order[0]<<(thebiggestnumberintheworld*item::price0)<<endl;
+
+
+
+
+
+    }
+
+
+
+};
+int main(){
+
+   store o;
+   o.itemlist();
+   order j;
+   j.getorder();
+
+
+
+    return 0;
+
+}
