@@ -1,0 +1,104 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+class B {
+private:
+    string fileName;
+    string imageType;
+    string a = "PNG",b = "GIF",c = "JPEG";
+    string date;
+    double size;
+    string author;
+    int imgX;
+    int imgY;
+    vector< int > imgD;
+
+    string aperture;
+    double exposure;
+    int ISO;
+    bool Flash;
+public:
+    void setfN(string n0){
+        fileName = n0;
+    }
+    string getfN(){
+        return fileName;
+    }
+    string getimgT(){
+        return imageType;
+    }
+
+    void setDate(string s){
+        date = s;
+    }
+    string getDate(){
+        return date;
+    }
+    void setSize(double n){
+        size = n;
+    }
+    void setName(string s1){
+        author = s1;
+    }
+    string getName(){
+        return author;
+    }
+    void setX(int w){
+        imgX = w;
+    }
+
+    void setY(int H){
+        imgY = H;
+    }
+
+    void setimgD(){
+        imgD = {imgX, imgY};
+    }
+     vector<int> getimgD(){
+        return imgD;
+    }
+    void getAp(string a0){
+        a0 = to_string(rand() % 100 + 1);
+
+        aperture = ("f/" + a0);
+    }
+    string getAp(){
+        return aperture;
+    }
+    void getexp(double a1){
+        int a2 =  rand() % 1000 + 1;
+        a1 = (1/a2);
+        exposure = a1;
+
+    }
+    double getexp(){
+        return exposure;
+    }
+    void setiso(int a3){
+        a3 = rand() % 10000 +1;
+        ISO = a3;
+    }
+    int getinso(){
+        return ISO;
+    }
+    void setflash(bool a){
+        a= true;
+        Flash = a;
+
+    }
+    bool getflash(){
+        return Flash;
+    }
+
+
+
+};
+
+int main(){
+    B myObj;
+
+
+    return 0;
+
+}
