@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class A {
+private:
+    string input;
+    string scheme;
+    string authority;
+    string path;
+    string bob = "//";
+    string gob = "com";
+
+    int z = input.size();
+
+    int b = input.find(":");
+    int c = input.find(bob);
+    int d = input.find(gob);
+public:
+
+    void setInput(string s){
+        input = s;
+    }
+    string getInput(){
+        return input;
+    }
+    void setScheme(string s2){
+        b = input.find(":");
+        s2 = input.substr(0,b+1);
+        scheme = s2;
+
+    }
+    string getScheme(){
+        return scheme;
+    }
+    void setAuthority(string s3){
+        c = input.find(bob);
+        d = input.find(gob);
+        s3 = input.substr(c, d-3);
+        authority = s3;
+    }
+    string getAuthority(){
+        return authority;
+    }
+    void setPath(string s4){
+        d = input.find(gob);
+        z = input.size();
+        s4 = input.substr(d+3,z);
+        path = s4;
+    }
+    string getPath(){
+        return path;
+    }
+
+};
+
+int main(){
+    A myObj;
+    string input;
+
+    cout << "Please enter a URL: ";
+    cin >> input;
+    myObj.setInput(input);
+    cout<< "Input: " << myObj.getInput()<<endl;
+
+    myObj.setScheme(input);
+    cout<< "Scheme: " << myObj.getScheme()<<endl;
+
+    myObj.setAuthority(input);
+    cout<<  "Authority: " << myObj.getAuthority()<<endl;
+
+    myObj.setPath(input);
+    cout<< "Path: " <<myObj.getPath()<<endl;
+
+
+    return 0;
+
+}
