@@ -7,8 +7,8 @@ private:
     string scheme;
     string authority;
     string path;
-    string bob = "//";
-    string gob = "com";
+    const string bob = "//";
+    const string gob = "com";
 
     int z = input.size();
 
@@ -17,37 +17,37 @@ private:
     int d = input.find(gob);
 public:
 
-    void setInput(string s){
+     void setInput(string s){
         input = s;
     }
-    string getInput(){
+    const string getInput(){
         return input;
     }
-    void setScheme(string s2){
+     void setScheme(string s2){
         b = input.find(":");
         s2 = input.substr(0,b+1);
         scheme = s2;
 
     }
-    string getScheme(){
+    const string getScheme(){
         return scheme;
     }
-    void setAuthority(string s3){
+     void setAuthority(string s3){
         c = input.find(bob);
         d = input.find(gob);
         s3 = input.substr(c, d-3);
         authority = s3;
     }
-    string getAuthority(){
+    const string getAuthority(){
         return authority;
     }
-    void setPath(string s4){
+     void setPath(string s4){
         d = input.find(gob);
         z = input.size();
         s4 = input.substr(d+3,z);
         path = s4;
     }
-    string getPath(){
+    const string getPath(){
         return path;
     }
 
@@ -60,7 +60,7 @@ int main(){
     cout << "Please enter a URL: ";
     cin >> input;
     myObj.setInput(input);
-    cout<< "Input: " << myObj.getInput()<<endl;
+    cout<< "URL: " << myObj.getInput()<<endl;
 
     myObj.setScheme(input);
     cout<< "Scheme: " << myObj.getScheme()<<endl;
